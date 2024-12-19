@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "extend-vcc"
+version = "0.1.6"
+description = "Manage virtual cards on Extend"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.26.0",
+    "requests-toolbelt>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.4",
+    "pytest-cov>=7.0.0",
+    "pytest-asyncio>=0.16.0",
+    "mypy>=1.0.0",
+    "black>=24.10.0",
+    "flake8>=7.1.1",
+]
+examples = [
+
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = ["asyncio: mark a test as asyncio-compatible."]
+asyncio_mode = "auto"
+
+[tool.flake8]
+max-line-length = 88
